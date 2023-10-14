@@ -4,7 +4,7 @@
 // @grant    none
 // @author   MarcoInc
 // @description Filtraggio per luogo, anno accademico e tipologia di esame
-// @version 1.0
+// @version 1.1
 // @run-at   document-end
 // @license MIT
 // @namespace https://greasyfork.org/users/564300
