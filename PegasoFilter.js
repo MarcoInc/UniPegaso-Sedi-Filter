@@ -4,7 +4,7 @@
 // @grant    none
 // @author   MarcoInc
 // @description Filtraggio per luogo, anno accademico e tipologia di esame
-// @version 1.1.2
+// @version 1.1.3
 // @run-at   document-end
 // @license MIT
 // @namespace https://greasyfork.org/users/564300
@@ -26,7 +26,15 @@ buttonAll.addEventListener('click', function() {
 
             form.innerHTML = `
                                 <label for="tipoProva">Tipo di prova:</label><br>
-                                <input type="text" id="tipoProva" name="tipoProva"><br>
+                                <select name="tipoProva" id="tipoProva">
+                                    <option selected value></option>
+                                    <option value="SCRITTO ONLINE">SCRITTO ONLINE</option>
+                                    <option value="SCRITTO IN PRESENZA">SCRITTO IN PRESENZA</option>
+                                    <option value="ORALE ONLINE">ORALE ONLINE</option>
+                                    <option value="ORALE IN PRESENZA">ORALE IN PRESENZA</option>
+                                    <option value="ORALE">ORALE</option>
+                                </select></br>
+
                                 <label for="anno">Anno:</label><br>
                                 <input type="text" id="anno" name="anno" placeholder="20XX/20XX"><br>
                                 <label for="luogo">Luogo:</label><br>
@@ -82,7 +90,15 @@ buttonMateria.forEach(function(button) {
 
             form.innerHTML = `
                                 <label for="tipoProva">Tipo di prova:</label><br>
-                                <input type="text" id="tipoProva" name="tipoProva"><br>
+                                <select name="tipoProva" id="tipoProva">
+                                    <option selected value></option>
+                                    <option value="SCRITTO ONLINE">SCRITTO ONLINE</option>
+                                    <option value="SCRITTO IN PRESENZA">SCRITTO IN PRESENZA</option>
+                                    <option value="ORALE ONLINE">ORALE ONLINE</option>
+                                    <option value="ORALE IN PRESENZA">ORALE IN PRESENZA</option>
+                                    <option value="ORALE">ORALE</option>
+                                </select></br>
+
                                 <label for="anno">Anno:</label><br>
                                 <input type="text" id="anno" name="anno" placeholder="20XX/20XX"><br>
                                 <label for="luogo">Luogo:</label><br>
