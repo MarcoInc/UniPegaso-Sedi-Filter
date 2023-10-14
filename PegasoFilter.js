@@ -4,7 +4,7 @@
 // @grant    none
 // @author   MarcoInc
 // @description Filtraggio per luogo, anno accademico e tipologia di esame
-// @version 1.1.1
+// @version 1.1.2
 // @run-at   document-end
 // @license MIT
 // @namespace https://greasyfork.org/users/564300
@@ -84,7 +84,7 @@ buttonMateria.forEach(function(button) {
                                 <label for="tipoProva">Tipo di prova:</label><br>
                                 <input type="text" id="tipoProva" name="tipoProva"><br>
                                 <label for="anno">Anno:</label><br>
-                                <input type="text" id="anno" name="anno"><br>
+                                <input type="text" id="anno" name="anno" placeholder="20XX/20XX"><br>
                                 <label for="luogo">Luogo:</label><br>
                                 <input type="text" id="luogo" name="luogo"><br>
                                 <input type="submit" value="Filtra">
