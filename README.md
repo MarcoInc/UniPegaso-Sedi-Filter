@@ -2,9 +2,6 @@
 Tampermonkey Script
 
 Changelog
-1.2
-Aggiunto select per filtrare tipologia di esame
-Aggiunti tipi di esame nel select
 
 1.3
 Aggiunti select per filtrare:
@@ -12,3 +9,8 @@ Aggiunti select per filtrare:
 *Mese
 Aggiunto contatore risultati
 Aggiunto tasto Reset
+
+1.2
+Aggiunto select per filtrare tipologia di esame
+Aggiunti tipi di esame nel select
+
