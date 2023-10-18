@@ -226,5 +226,3 @@ function contaElementi(){
     }
     return contatore;
 }
-
-
