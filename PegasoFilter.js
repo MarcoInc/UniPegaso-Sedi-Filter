@@ -3,8 +3,8 @@
 // @match    https://lms-courses.pegaso.multiversity.click/main/reservation/student/my_exam_journal.php
 // @grant    none
 // @author   MarcoInc
-// @description Filtraggio per luogo, anno accademico e tipologia di esame
-// @version 1.3
+// @description Filtraggio per luogo, anno accademico,tipologia di esame, sessione d'esame e mese
+// @version 1.3.1
 // @run-at   document-end
 // @license MIT
 // @namespace https://greasyfork.org/users/564300
@@ -44,7 +44,7 @@ function filtro(){
             form.innerHTML = `
                                 <label for="tipoProva">Tipo di prova:</label><br>
                                 <select name="tipoProva" id="tipoProva">
-                                    <option selected value="default">TUTTI</option>
+                                    <option selected value="">TUTTI</option>
                                     <option value="SCRITTO ONLINE">SCRITTO ONLINE</option>
                                     <option value="SCRITTO IN PRESENZA">SCRITTO IN PRESENZA</option>
                                     <option value="SCRITTO">SCRITTO</option>
@@ -55,7 +55,7 @@ function filtro(){
 
                                 <label for="sessione">Sessione</label><br>
                                 <select name="sessione" id="sessione">
-                                    <option selected value="default">TUTTE</option>
+                                    <option selected value="">TUTTE</option>
                                     <option value="sessione1">1° Sessione - Novembre/Dicembre</option>
                                     <option value="sessione2">2° Sessione - Febbraio/Marzo</option>
                                     <option value="sessione3">3° Sessione - Giugno/Luglio</option>
@@ -69,7 +69,7 @@ function filtro(){
 
                                 <label for="mese">Mese</label><br>
                                 <select name="mese" id="mese">
-                                    <option selected value="default">TUTTI</option>
+                                    <option selected value="">TUTTI</option>
                                     <option value="Novembre">Novembre</option>
                                     <option value="Dicembre">Dicembre</option>
                                     <option value="Febbraio">Febbraio</option>
@@ -104,9 +104,9 @@ function filtro(){
             reset.addEventListener('submit', function(event) {
                 event.preventDefault();
                 var righe = document.querySelectorAll('.container_exam tbody tr');
-                document.getElementById('tipoProva').value="default";
-                document.getElementById('mese').value="default";
-                document.getElementById('sessione').value="default";
+                document.getElementById('tipoProva').value="";
+                document.getElementById('mese').value="";
+                document.getElementById('sessione').value="";
                 document.getElementById('anno').value="";
                 document.getElementById('luogo').value="";
                 righe.forEach(function(riga) {
@@ -135,7 +135,8 @@ function filtro(){
 
                 //FILTRO TIPOLOGIA ESAME
                 // Verifica se la riga corrisponde ai criteri di ricerca
-                var corrispondeTipoProva = tipoProva ? colonne[4].textContent.trim().includes(tipoProva) : true;
+                var corrispondeTipoProva = tipoProva ? colonne[4].textContent.trim().toUpperCase().includes(tipoProva) : true;
+
 
                 //ESTRAE LA DATA
                 var dataEsame = colonne[1].textContent.match(/Data Esame: (\d{2}\/\d{2}\/\d{4})/)[1];
@@ -201,7 +202,7 @@ function filtro(){
                 var corrispondeLuogo = luogo ? colonne[3].textContent.trim().toUpperCase().includes(luogo) : true;
 
                 // Mostra o nasconde la riga in base alla corrispondenza con i criteri di ricerca
-                riga.style.display = (corrispondeTipoProva!==true && corrispondeAnno && corrispondeLuogo && corrispondeSessione && corrispondeMese) ? '' : 'none';
+                riga.style.display = (corrispondeTipoProva && corrispondeAnno && corrispondeLuogo && corrispondeSessione && corrispondeMese) ? '' : 'none';
             });
             trovati.innerHTML=`Elementi trovati : ${(contaElementi())}`;
         });
