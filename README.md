@@ -2,6 +2,8 @@
 Tampermonkey Script
 
 Changelog
+1.3.1
+Fixato problema nel filtro "Tipo di esame"
 
 1.3
 
